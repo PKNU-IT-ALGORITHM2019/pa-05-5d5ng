@@ -99,17 +99,14 @@ public class Main {
 					mean=allstr.substring(j+2, allstr.length());
 
 				else mean=" ";
-				//				System.out.println(w);
-				//				System.out.println(c);
-				//				System.out.println(mean);
 
 				Node node=new Node(w,c,mean);
 				t.TreeInsert(t, node);
 
 
-				
+
 			}
-			//			t.inorder_tree(t.root);
+
 			Fin.close();
 
 		} 
@@ -125,26 +122,27 @@ public class Main {
 		int cnt=0;
 		try {
 			Scanner Fin =new Scanner (new File(Fname));
-			
+
 			while(Fin.hasNext()) {
 				String w=Fin.nextLine();
 				w=w.replaceAll(" ", "");
 				Node node=new Node(w," "," ");
 				node=t.TreeSearch(t.root, w);
 				if(node!=null)
-				t.TreeDelete(t, node);
-				cnt++;
-				
-				
+				{
+					t.TreeDelete(t, node);
+					cnt++;
+				}
+
 			}
 			System.out.println(cnt+" words were deleted successfully.");
-			
+
 			Fin.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
-		
+
 
 	}
 
@@ -164,23 +162,23 @@ public class Main {
 		else {
 			t.TreeDelete(t, node);
 		} 
-			
-		
-		
+
+
+
 
 	}
 
 	private void add() {
-//		String c=" ";
+
 		System.out.print("word: ");
 		String w=kb.next();
 		String c=kb.nextLine();
 		System.out.print("Class: ");
-		 c=kb.nextLine();
-	
+		c=kb.nextLine();
+
 		System.out.print("meaning: ");
 		String m=kb.next();
-		
+
 		Node node=new Node(w,c,m);
 		t.TreeInsert(t, node);
 
